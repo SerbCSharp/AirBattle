@@ -1,8 +1,4 @@
 {
-  "script": {
-    "dev": "vite",
-    "build": "vite build"
-  },
   "dependencies": {
     "gsap": "^3.12.7",
     "three": "^0.172.0"
