@@ -1,5 +1,8 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import GUI from 'lil-gui'
+
+const gui = new GUI();
 
 const scene = new THREE.Scene();
 
@@ -7,10 +10,13 @@ const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.inner
 camera.position.z = 3;
 scene.add(camera);
 
-const cubeGeometry = new THREE.BoxGeometry(1,1,1);
+const cubeGeometry = new THREE.BoxGeometry(1,1,1,2,2,2);
 const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
 const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 scene.add(cube);
+
+gui.add(cube.position, 'y').min(-3).max(3).step(0.01).name('elevation');
+gui.add(cube, 'visible');
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
