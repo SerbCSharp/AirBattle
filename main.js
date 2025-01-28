@@ -1,12 +1,15 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
-const image = new Image();
-image.src = '/static/textures/Wood_024/Wood_024_basecolor.jpg';
-const texture = new THREE.Texture(image);
-image.onload = () => {
-    texture.needsUpdate = true;
-};
+const loadingManager = new THREE.LoadingManager();
+const textureLoader = new THREE.TextureLoader(loadingManager);
+const colorTexture = textureLoader.load('/static/textures/Door_Wood_001/Door_Wood_001_basecolor.jpg')
+const opacityTexture = textureLoader.load('/static/textures/Door_Wood_001/Door_Wood_001_opacity.jpg')
+const heightTexture = textureLoader.load('/static/textures/Door_Wood_001/Door_Wood_001_height.jpg')
+const normalTexture = textureLoader.load('/static/textures/Door_Wood_001/Door_Wood_001_normal.jpg')
+const ambientOcclusionTexture = textureLoader.load('/static/textures/Door_Wood_001/Door_Wood_001_ambientOcclusion.jpg')
+const metallicTexture = textureLoader.load('/static/textures/Door_Wood_001/Door_Wood_001_metallic.jpg')
+const roughnessTexture = textureLoader.load('/static/textures/Door_Wood_001/Door_Wood_001_roughness.jpg')
 
 const scene = new THREE.Scene();
 
@@ -15,7 +18,7 @@ camera.position.z = 3;
 scene.add(camera);
 
 const cubeGeometry = new THREE.BoxGeometry(1,1,1,2,2,2);
-const cubeMaterial = new THREE.MeshBasicMaterial({ map: texture });
+const cubeMaterial = new THREE.MeshBasicMaterial({ map: colorTexture });
 const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 scene.add(cube);
 
