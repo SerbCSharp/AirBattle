@@ -11,14 +11,9 @@ const ambientOcclusionTexture = textureLoader.load('/static/textures/Door_Wood_0
 const metallicTexture = textureLoader.load('/static/textures/Door_Wood_001/Door_Wood_001_metallic.jpg')
 const roughnessTexture = textureLoader.load('/static/textures/Door_Wood_001/Door_Wood_001_roughness.jpg')
 
-colorTexture.repeat.x = 2;
-colorTexture.repeat.y = 3;
-colorTexture.wrapS = THREE.RepeatWrapping;
-colorTexture.wrapT = THREE.RepeatWrapping;
-colorTexture.offset.x = 0.5;
-colorTexture.rotation = Math.PI * 0.25;
-colorTexture.center.x = 0.5;
-colorTexture.center.y = 0.5;
+colorTexture.generateMipmaps = false;
+colorTexture.minFilter = THREE.NearestFilter;
+colorTexture.magFilter = THREE.NearestFilter;
 
 const scene = new THREE.Scene();
 
