@@ -5,11 +5,20 @@ const loadingManager = new THREE.LoadingManager();
 const textureLoader = new THREE.TextureLoader(loadingManager);
 const colorTexture = textureLoader.load('/static/textures/Door_Wood_001/Door_Wood_001_basecolor.jpg')
 const opacityTexture = textureLoader.load('/static/textures/Door_Wood_001/Door_Wood_001_opacity.jpg')
-const heightTexture = textureLoader.load('/static/textures/Door_Wood_001/Door_Wood_001_height.jpg')
+const heightTexture = textureLoader.load('/static/textures/Door_Wood_001/Door_Wood_001_height.png')
 const normalTexture = textureLoader.load('/static/textures/Door_Wood_001/Door_Wood_001_normal.jpg')
 const ambientOcclusionTexture = textureLoader.load('/static/textures/Door_Wood_001/Door_Wood_001_ambientOcclusion.jpg')
 const metallicTexture = textureLoader.load('/static/textures/Door_Wood_001/Door_Wood_001_metallic.jpg')
 const roughnessTexture = textureLoader.load('/static/textures/Door_Wood_001/Door_Wood_001_roughness.jpg')
+
+colorTexture.repeat.x = 2;
+colorTexture.repeat.y = 3;
+colorTexture.wrapS = THREE.RepeatWrapping;
+colorTexture.wrapT = THREE.RepeatWrapping;
+colorTexture.offset.x = 0.5;
+colorTexture.rotation = Math.PI * 0.25;
+colorTexture.center.x = 0.5;
+colorTexture.center.y = 0.5;
 
 const scene = new THREE.Scene();
 
@@ -17,7 +26,7 @@ const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.inner
 camera.position.z = 3;
 scene.add(camera);
 
-const cubeGeometry = new THREE.BoxGeometry(1,1,1,2,2,2);
+const cubeGeometry = new THREE.BoxGeometry(1,1,1);
 const cubeMaterial = new THREE.MeshBasicMaterial({ map: colorTexture });
 const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 scene.add(cube);
