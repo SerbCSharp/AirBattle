@@ -1,8 +1,12 @@
 {
+  "scripts": {
+     "deploy": "vercel --prod"
+  },
   "dependencies": {
     "gsap": "^3.12.7",
     "lil-gui": "^0.20.0",
-    "three": "^0.172.0"
+    "three": "^0.172.0",
+    "vercel": "^39.4.2"
   },
   "devDependencies": {
     "vite": "^6.0.6"
