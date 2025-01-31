@@ -8,7 +8,7 @@ const gui = new GUI();
 
 const scene = new THREE.Scene();
 
-const textureLoader = new THREE.TextureLoader();
+const textureLoader = new  THREE.TextureLoader();
 const matcapTexture = textureLoader.load('/static/textures/matcaps/8.png')
 matcapTexture.colorSpace = THREE.SRGBColorSpace;
 
